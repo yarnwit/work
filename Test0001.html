@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS Arena - Ultimate Gaming Experience</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        neon: {
+                            blue: '#00f3ff',
+                            purple: '#bc13fe',
+                            green: '#0aff0a'
+                        },
+                        dark: {
+                            bg: '#050505',
+                            card: '#121212',
+                            surface: '#1e1e1e'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(5,5,5,0.3), rgba(5,5,5,1)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                        'cyber-grid': "radial-gradient(circle, rgba(188, 19, 254, 0.1) 1px, transparent 1px)"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+        }
+        
+        /* Neon Glow Effects */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+        }
+        .text-glow-purple {
+            text-shadow: 0 0 10px rgba(188, 19, 254, 0.7);
+        }
+        
+        .cyber-border {
+            position: relative;
+            background: linear-gradient(90deg, #00f3ff, #bc13fe);
+            padding: 1px;
+            border-radius: 0.5rem;
+        }
+        .cyber-inner {
+            background: #121212;
+            height: 100%;
+            border-radius: 0.4rem;
+        }
+
+        /* Glitch Effect on Hover */
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #00f3ff;
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-dark-bg/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="font-display text-2xl font-black italic tracking-wider text-white">
+                        NEXUS <span class="text-neon-blue">ARENA</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-neon-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">หน้าหลัก</a>
+                        <a href="#specs" class="hover:text-neon-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">สเปคเครื่อง</a>
+                        <a href="#services" class="hover:text-neon-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">บริการ</a>
+                        <a href="#pricing" class="hover:text-neon-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">ราคา</a>
+                        <a href="#contact" class="bg-gradient-to-r from-neon-blue to-neon-purple text-white px-6 py-2 rounded-full font-bold hover:shadow-[0_0_15px_rgba(0,243,255,0.5)] transition-all transform hover:-translate-y-0.5">
+                            จองเครื่องเลย
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden md:hidden bg-dark-card border-b border-white/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">หน้าหลัก</a>
+                <a href="#specs" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">สเปคเครื่อง</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ราคา</a>
+                <a href="#contact" class="text-neon-blue block px-3 py-2 rounded-md text-base font-bold">จองเครื่อง</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed flex items-center justify-center">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <span class="inline-block py-1 px-3 rounded-full bg-neon-purple/20 border border-neon-purple text-neon-purple text-sm font-bold mb-6 tracking-wider uppercase animate-pulse">
+                New Zone Open! VIP Private Room
+            </span>
+            <h1 class="font-display text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                ปลดปล่อย <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow">ขีดจำกัด</span><br>
+                ในตัวคุณ
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">
+                สัมผัสประสบการณ์ E-Sports ระดับโลกด้วยเครื่องสเปคเทพ จอ 240Hz และอินเทอร์เน็ตความเร็วแสง พร้อมบรรยากาศที่สร้างมาเพื่อเกมเมอร์ตัวจริง
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#pricing" class="px-8 py-4 bg-white text-black font-bold text-lg rounded-sm hover:bg-neon-blue hover:text-black transition-all duration-300 clip-path-polygon">
+                    ดูแพ็คเกจราคา
+                </a>
+                <a href="#location" class="px-8 py-4 border border-white/30 backdrop-blur-sm text-white font-bold text-lg rounded-sm hover:border-neon-purple hover:text-neon-purple transition-all duration-300">
+                    <i class="fas fa-map-marker-alt mr-2"></i> เส้นทางมาร้าน
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 w-full bg-black/80 backdrop-blur py-3 border-t border-white/10 overflow-hidden whitespace-nowrap">
+            <div class="inline-block animate-[marquee_20s_linear_infinite] text-gray-400 text-sm font-mono">
+                <span class="mx-8"><i class="fas fa-bolt text-neon-blue mr-2"></i>RTX 4090 Available</span>
+                <span class="mx-8"><i class="fas fa-wifi text-neon-green mr-2"></i>Gigabit Fiber Optic</span>
+                <span class="mx-8"><i class="fas fa-chair text-neon-purple mr-2"></i>Secretlab Chairs</span>
+                <span class="mx-8"><i class="fas fa-hamburger text-yellow-500 mr-2"></i>24/7 Food Service</span>
+                <span class="mx-8"><i class="fas fa-bolt text-neon-blue mr-2"></i>RTX 4090 Available</span>
+                <span class="mx-8"><i class="fas fa-wifi text-neon-green mr-2"></i>Gigabit Fiber Optic</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="py-24 bg-dark-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-white mb-4">ARMORY <span class="text-neon-blue">SPECS</span></h2>
+                <p class="text-gray-400">อุปกรณ์ระดับ Pro Player ที่พร้อมให้คุณสัมผัส</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="cyber-border group cursor-default">
+                    <div class="cyber-inner p-8 text-center hover:bg-white/5 transition-colors duration-300">
+                        <div class="w-16 h-16 bg-neon-blue/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-microchip text-3xl text-neon-blue"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Performance Beast</h3>
+                        <p class="text-gray-400 text-sm mb-4">Intel Core i9-13900K</p>
+                        <p class="text-gray-400 text-sm">NVIDIA RTX 4090 24GB</p>
+                        <p class="text-gray-400 text-sm">RAM 64GB DDR5</p>
+                    </div>
+                </div>
+
+                <div class="cyber-border group cursor-default">
+                    <div class="cyber-inner p-8 text-center hover:bg-white/5 transition-colors duration-300">
+                        <div class="w-16 h-16 bg-neon-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-desktop text-3xl text-neon-purple"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Visual Clarity</h3>
+                        <p class="text-gray-400 text-sm mb-4">ZOWIE XL2566K 360Hz</p>
+                        <p class="text-gray-400 text-sm">24.5" DyAc+ Technology</p>
+                        <p class="text-gray-400 text-sm">0.5ms Response Time</p>
+                    </div>
+                </div>
+
+                <div class="cyber-border group cursor-default">
+                    <div class="cyber-inner p-8 text-center hover:bg-white/5 transition-colors duration-300">
+                        <div class="w-16 h-16 bg-neon-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-keyboard text-3xl text-neon-green"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Pro Gear</h3>
+                        <p class="text-gray-400 text-sm mb-4">Logitech G Pro X Superlight</p>
+                        <p class="text-gray-400 text-sm">Mechanical Custom Keyboard</p>
+                        <p class="text-gray-400 text-sm">HyperX Cloud II Wireless</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-dark-card border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1598550476439-cce643f97f17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gaming Setup" class="rounded-lg shadow-lg shadow-neon-blue/20 transform translate-y-8">
+                        <img src="https://images.unsplash.com/photo-1612287230217-969869802318?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Console Zone" class="rounded-lg shadow-lg shadow-neon-purple/20">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-6">
+                    <h2 class="font-display text-4xl font-bold">MORE THAN JUST <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-green">A GAMING CAFE</span></h2>
+                    <p class="text-gray-300">
+                        Nexus Arena ไม่ใช่แค่ร้านเน็ต แต่คือคอมมูนิตี้สำหรับเกมเมอร์ เรามีโซนต่างๆ ที่ตอบโจทย์ทุกความต้องการ
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-4">
+                            <span class="w-8 h-8 rounded bg-neon-blue/20 flex items-center justify-center text-neon-blue font-bold">1</span>
+                            <div>
+                                <h4 class="font-bold text-white">VIP Private Room</h4>
+                                <p class="text-sm text-gray-400">ห้องส่วนตัวเก็บเสียง สำหรับทีมซ้อมแข่ง หรือสตรีมเมอร์</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <span class="w-8 h-8 rounded bg-neon-purple/20 flex items-center justify-center text-neon-purple font-bold">2</span>
+                            <div>
+                                <h4 class="font-bold text-white">Console Lounge</h4>
+                                <p class="text-sm text-gray-400">โซน PS5, Nintendo Switch บนจอ 4K 65 นิ้ว พร้อมโซฟานุ่มสบาย</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <span class="w-8 h-8 rounded bg-neon-green/20 flex items-center justify-center text-neon-green font-bold">3</span>
+                            <div>
+                                <h4 class="font-bold text-white">Cafe & Bar</h4>
+                                <p class="text-sm text-gray-400">บริการอาหารปรุงสด เครื่องดื่ม Energy Drink และกาแฟตลอด 24 ชม.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 bg-dark-bg relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-white">BATTLE PASS <span class="text-neon-purple">RATES</span></h2>
+                <p class="text-gray-400">ราคาคุ้มค่า พร้อมระบบสมาชิกสะสมแต้ม</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all">
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">Guest / Walk-in</h3>
+                    <div class="text-3xl font-bold text-neon-blue mb-4">฿25 <span class="text-sm text-gray-500 font-normal">/ ชั่วโมง</span></div>
+                    <ul class="space-y-3 mb-8 text-gray-400 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Standard Zone Access</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> PC Spec: RTX 3060</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 144Hz Monitor</li>
+                        <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i> No Food Discount</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black font-bold transition-all">
+                        สมัครสมาชิกฟรี
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-b from-dark-surface to-dark-card border border-neon-purple rounded-2xl p-8 transform scale-105 shadow-2xl shadow-neon-purple/20 relative">
+                    <div class="absolute top-0 right-0 bg-neon-purple text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">NEXUS Member</h3>
+                    <div class="text-3xl font-bold text-neon-purple mb-4">฿20 <span class="text-sm text-gray-500 font-normal">/ ชั่วโมง</span></div>
+                    <p class="text-gray-400 text-xs mb-4">*เมื่อเติมเงิน 300 บาทขึ้นไป</p>
+                    <ul class="space-y-3 mb-8 text-gray-300 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-neon-purple mr-2"></i> All Zone Access</li>
+                        <li class="flex items-center"><i class="fas fa-check text-neon-purple mr-2"></i> PC Spec: RTX 4070</li>
+                        <li class="flex items-center"><i class="fas fa-check text-neon-purple mr-2"></i> 240Hz Monitor</li>
+                        <li class="flex items-center"><i class="fas fa-check text-neon-purple mr-2"></i> ส่วนลดอาหาร 10%</li>
+                        <li class="flex items-center"><i class="fas fa-check text-neon-purple mr-2"></i> สะสมแต้มแลกของรางวัล</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg bg-gradient-to-r from-neon-purple to-pink-600 text-white font-bold hover:shadow-lg hover:shadow-neon-purple/50 transition-all">
+                        สมัครสมาชิกเลย
+                    </button>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all">
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">VIP Room</h3>
+                    <div class="text-3xl font-bold text-neon-green mb-4">฿150 <span class="text-sm text-gray-500 font-normal">/ ชม. (เหมาห้อง)</span></div>
+                    <p class="text-gray-400 text-xs mb-4">สำหรับ 5-6 ท่าน</p>
+                    <ul class="space-y-3 mb-8 text-gray-400 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Private Soundproof Room</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> PC Spec: RTX 4090 (God Tier)</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 360Hz Monitor</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Stream Deck & Pro Mic</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> โซฟาส่วนตัว</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border border-neon-green text-neon-green hover:bg-neon-green hover:text-black font-bold transition-all">
+                        จองห้อง VIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-fixed bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative z-10 text-center px-4">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">พร้อมลงสนามหรือยัง?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                เข้าร่วมการแข่งขันทัวร์นาเมนต์ประจำเดือน ชิงเงินรางวัลรวมกว่า 50,000 บาท
+            </p>
+            <button class="px-10 py-4 bg-transparent border-2 border-white text-white font-bold text-xl rounded hover:bg-white hover:text-black transition-all">
+                ดูกิจกรรม Tournament
+            </button>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-[#0a0a0a] border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="font-display text-2xl font-black italic tracking-wider text-white mb-6 block">
+                        NEXUS <span class="text-neon-blue">ARENA</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-6">
+                        The ultimate destination for gamers. High-end specs, premium atmosphere, and endless fun.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-neon-blue hover:text-black transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-neon-purple hover:text-white transition-colors"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider">เมนู</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-neon-blue transition-colors">หน้าหลัก</a></li>
+                        <li><a href="#specs" class="hover:text-neon-blue transition-colors">สเปคคอม</a></li>
+                        <li><a href="#pricing" class="hover:text-neon-blue transition-colors">แพ็คเกจราคา</a></li>
+                        <li><a href="#" class="hover:text-neon-blue transition-colors">สมัครงาน</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider">ติดต่อเรา</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-neon-blue"></i> 123 Cyber Building, Siam Square, Bangkok 10330</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-3 text-neon-blue"></i> 02-123-4567</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-neon-blue"></i> contact@nexusarena.com</li>
+                        <li class="flex items-center"><i class="fas fa-clock mr-3 text-neon-blue"></i> เปิดบริการ 24 ชั่วโมง</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="w-full h-48 bg-gray-800 rounded-lg overflow-hidden relative group">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.6171350031866!2d100.5342!3d13.7444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2992f03f7516d%3A0x6a218274718501e4!2sSiam%20Square!5e0!3m2!1sen!2sth!4v1620000000000!5m2!1sen!2sth" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%);" allowfullscreen="" loading="lazy"></iframe>
+                        <div class="absolute inset-0 bg-transparent group-hover:bg-transparent transition-all pointer-events-none border-2 border-transparent group-hover:border-neon-blue rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 Nexus Gaming Arena. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="fixed bottom-24 right-6 w-[350px] h-[500px] bg-dark-card border border-neon-purple rounded-2xl shadow-2xl shadow-neon-purple/30 overflow-hidden transform scale-0 origin-bottom-right transition-transform duration-300 z-50 flex flex-col">
+        <div class="bg-gradient-to-r from-neon-purple to-neon-blue p-3 text-white font-bold flex justify-between items-center shadow-md">
+            <span class="flex items-center"><i class="fas fa-robot mr-2"></i> NEXUS Assistant</span>
+            <button onclick="toggleChat()" class="hover:text-red-400 transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <iframe 
+            src="https://cc0e97f08715b0cbbb.gradio.live" 
+            class="w-full flex-1 border-none bg-white">
+        </iframe>
+    </div>
+
+    <button onclick="toggleChat()" class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full text-white text-2xl shadow-[0_0_20px_rgba(188,19,254,0.6)] hover:scale-110 transition-transform duration-300 z-50 flex items-center justify-center animate-bounce">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <script>
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add class to navbar on scroll
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg', 'bg-dark-bg/95');
+                navbar.classList.remove('bg-dark-bg/90');
+            } else {
+                navbar.classList.remove('shadow-lg', 'bg-dark-bg/95');
+                navbar.classList.add('bg-dark-bg/90');
+            }
+        });
+
+        // Animation for numbers (Ticker Style for effect)
+        tailwind.config.theme.extend.keyframes = {
+            ...tailwind.config.theme.extend.keyframes,
+            marquee: {
+                '0%': { transform: 'translateX(100%)' },
+                '100%': { transform: 'translateX(-100%)' },
+            }
+        }
+
+        // ฟังก์ชันเปิด/ปิดแชทบอท
+        function toggleChat() {
+            const chatContainer = document.getElementById('chatbot-container');
+            if (chatContainer.classList.contains('scale-0')) {
+                // เปิดแชท
+                chatContainer.classList.remove('scale-0');
+            } else {
+                // ปิดแชท
+                chatContainer.classList.add('scale-0');
+            }
+        }
+    </script>
+</body>
+</html>
